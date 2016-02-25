@@ -1,0 +1,59 @@
+﻿/* CSS */
+/*#caja{
+	float
+	position:absolute;
+	margin-top:20%;*/
+	/*margin-top:50%;
+	margin-left:50%;*/
+
+/*}*/
+/*#p1{
+
+  position: relative;
+  width: 580px;
+  height: 600px;
+  margin: 20px auto 0 auto;
+  background: url(clockface.png);
+  list-style: none;
+
+
+}*/
+
+#clock {
+  position: relative;
+  width: 637px;
+  height: 800px;
+  margin: 20px auto 0 auto;
+  background: url(reloj.png); 
+  list-style: none;
+}
+#h2{
+position:relative;
+margin-left:20%;
+
+}
+
+/*#h3{
+
+ 
+	float:center;
+}*/
+
+
+#centrar{
+	height:100%; /*se amplia al aumentar el tamaño de la lista*/
+    
+  /*position: absolute;  
+    left: 45%; top: 50%;*/
+
+/* centrar en página*/
+	margin-left:40%;
+	margin-right:35%;
+
+/*color de fondo*/
+	background: #bdb7bd;
+
+/*anchura de cuadrado*/
+  width:180px;
+
+}

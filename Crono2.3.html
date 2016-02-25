@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head><title>Cronómetro</title><meta charset="UTF-8">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.3/zepto.min.js" > </script>
+<script type="text/javascript" src="touch.js" > </script>
+<link href="estilo.css" rel="stylesheet"
+type="text/css" media="screen">
+<script type="text/javascript">
+  $(function(){
+   localStorage.c = (localStorage.c || "0.0");
+   localStorage.lista = (localStorage.lista || "");
+   var lista = $("#lista");
+   var t, cl = $("#crono");
+   var i = $('#i1');
+   
+
+   lista.html(localStorage.lista);
+   cl.html((+localStorage.c).toFixed(1));
+
+   function incr() { localStorage.c = +localStorage.c + 0.1; }
+   function mostrar() {
+      cl.html((+localStorage.c).toFixed(1)); };
+   function arrancar() { t=setInterval(function(){incr(); mostrar()}, 100);};
+   function parar() {
+      clearInterval(t); 
+      t=undefined;
+      lista.html(localStorage.lista + "<br>"+"Tiempo: " + cl.html() + " segundos");
+      localStorage.lista = lista.html();
+   };
+
+   function cambiar() { if(!t) arrancar(); else parar();};
+   i.on('tap',cambiar);
+   i.on('swipeLeft', function(){
+      if(!t){
+      cl.html("0.0");
+      lista.html("");
+      localStorage.lista = lista.html();
+      localStorage.c= cl.html();
+      mostrar();
+   }
+   });
+
+   $("#cambiar").on('click', cambiar);
+   $("#inicializar").on('click',function(){
+      if(!t){
+      cl.html("0.0");
+      lista.html("");
+      localStorage.lista = lista.html();
+      localStorage.c= cl.html();
+
+      mostrar();};});
+   	});
+</script>
+</head>
+<body >
+
+<center><h1>Cronómetro</h1></center>
+
+<p id="clock">
+
+<!--poner el contador encima de la imagen como si fuera una imagen sobre otra siendo la imagen del reloj n bakground
+-->
+      <h2 style="position:absolute;left:45%;top:90%;"><span id="crono"> 0.0 </span> segundos</h2>
+</p>
+<!--    <h2 id="Tiempo"><span id="crono"> 0.0 </span> segundos</h2>
+ -->
+
+
+
+
+<center><h3><i>Celia Saras González y Lourdes Luque Cantó</i></h3></center>
+
+
+
+<div id="centrar">
+<button type="button" id="cambiar">arrancar/parar</button>
+<button type="button" id="inicializar">inicializar</button>
+<div id ="lista"></div>
+</div>
+
+
+
+
+</body>
+</html>
